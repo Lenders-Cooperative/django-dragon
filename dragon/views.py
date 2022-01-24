@@ -13,14 +13,6 @@ class DragonSearchAdminView(DragonViewMixin, FormView):
     form_class = SearchForm
     page_title = "Search"
 
-    def setup(self, *args, **kwargs):
-        super().setup(*args, **kwargs)
-
-        for name, display in get_caches():
-            cache = CacheManager(name)
-            cache.cache.set('logan', 'Logan Bibby')
-            cache.cache.set('abc', '123')
-
     def form_valid(self, form):
         data = form.cleaned_data
 
