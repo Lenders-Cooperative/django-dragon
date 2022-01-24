@@ -15,6 +15,10 @@ def get_caches():
     return [(key, f"{key} ({cache['BACKEND'].split('.').pop()})") for key, cache in caches.items()]
 
 
+def has_redis_cache():
+    return len([1 for name, backend in get_caches() if 'redis' in backend.lower()]) > 0
+
+
 class CacheManager(object):
     def __init__(self, cache_name):
         self.cache = caches[cache_name]

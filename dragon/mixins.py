@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.mixins import UserPassesTestMixin
+from .utils import has_redis_cache
 
 
 __all__ = [
@@ -22,6 +23,8 @@ class DragonViewMixin(UserPassesTestMixin):
         ctx['title'] = 'Dragon'
 
         if self.page_title:
-            ctx['subtitle'] = self.page_title
+            ctx['page_title'] = self.page_title
+
+        ctx['has_redis_cache'] = has_redis_cache()
 
         return ctx
