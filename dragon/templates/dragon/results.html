@@ -1,0 +1,16 @@
+{% extends 'dragon/base.html' %}
+
+{% block dragon_content %}
+    <form method="post">
+        <table>
+            {% for key in keys %}
+            <tr>
+                <td><input type="checkbox" name="key" value="{{ key }}"></td>
+                <td>{{ key }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Clear Selected Keys">
+        {% csrf_token %}
+    </form>
+{% endblock %}

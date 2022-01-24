@@ -1,0 +1,35 @@
+{% extends 'dragon/base.html' %}
+{% load static admin_modify %}
+
+{% block coltype %}colM{% endblock %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">{% endblock %}
+
+{% block bodyclass %}{{ block.super }} change-form{% endblock %}
+
+{% block dragon_content %}
+    <form method="post">
+        <div>
+            <fieldset class="module aligned">
+                {% for field in form.visible_fields %}
+                <div class="form-row field-{{ field.name }}">
+                    <div style="margin-bottom: 10px;">
+                        {{ field.label }}
+                    </div>
+                    <div>
+                        {{ field }}
+                    </div>
+                    {% if field.help_text %}
+                    <div class="help" style="margin-left: 0; padding-left: 0; margin-top: 10px;">{{ field.help_text }}</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </fieldset>
+            <div class="submit-row" style="text-align: left">
+                <input type="submit" value="Search">
+            </div>
+        </div>
+        {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+        {% csrf_token %}
+    </form>
+{% endblock %}
