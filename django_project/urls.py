@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/dragon/', include('dragon.urls')),
+    path('admin/dragon/', include('dragon_cache_manager.urls')),
     path('admin/', admin.site.urls),
 ]

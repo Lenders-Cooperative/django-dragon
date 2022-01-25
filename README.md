@@ -1,4 +1,4 @@
-# Django Dragon 🐲
+# Django Dragon Cache Manager 🐲
 
 A cache manager for Django admin.
 
@@ -12,8 +12,8 @@ I will not part with a single coin! Not one piece of it!"
 ## Installation
 
 1. Install the package: `pip install django-dragon`
-2. Add `dragon` to your `INSTALLED_APPS` in Django settings.
-3. Add the Dragon URLs **before** `admin/`: `path('admin/dragon/', include('dragon.urls')),`
+2. Add `dragon_cache_manager` to your `INSTALLED_APPS` in Django settings.
+3. Add the Dragon URLs **before** `admin/`: `path('admin/dragon/', include('dragon_cache_manager.urls')),`
 4. Dragon will be accessible from `/admin/dragon`.
 
 ## Configuration
@@ -29,6 +29,30 @@ Callback for determining access to the Dragon pages.
 Should return `True` if allowed. Otherwise, `False`.
 
 By default, any staff or superuser will be able to access Dragon.
+
+### `USER_IS_SUPERUSER`
+
+Indicates if a superuser is allowed to view Dragon.
+
+Default: `True`
+
+### `USER_IS_STAFF`
+
+Same as `USER_IS_SUPERUSER` but for staff. 
+
+Default: `False`
+
+### `ENABLE_INDEX`
+
+Indicates if the Redis key index should be shown.
+
+Default: `False`
+
+### `MAX_RESULTS`
+
+Maximum number of results to return on a key search.
+
+Default: `50`
 
 ## Commands
 

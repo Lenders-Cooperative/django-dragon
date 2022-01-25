@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dragon.apps.DragonConfig',
+    'dragon_cache_manager.apps.DragonCacheManagerConfig',
 ]
 
 MIDDLEWARE = [
