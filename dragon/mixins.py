@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.auth.mixins import UserPassesTestMixin
-from .utils import has_redis_cache
+from .utils import *
 
 
 __all__ = [
@@ -14,13 +14,19 @@ class DragonViewMixin(UserPassesTestMixin):
     def test_func(self):
         if settings.DRAGON_USER_TEST_CALLBACK:
             return settings.DRAGON_USER_TEST_CALLBACK(self.request)
-        
-        return self.request.user.is_superuser or self.request.user.is_staff
+
+        if settings.DRAGON_USER_IS_SUPERUSER and self.request.user.is_superuser:
+            return True
+
+        if settings.DRAGON_USER_IS_STAFF and self.request.user.is_staff:
+            return True
+
+        return False
     
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
 
-        ctx['title'] = 'Dragon'
+        ctx['title'] = 'Dragon Cache Manager'
 
         if self.page_title:
             ctx['page_title'] = self.page_title

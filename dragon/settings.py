@@ -7,7 +7,11 @@ __all__ = [
 
 
 DEFAULT_SETTINGS = {
-    "USER_TEST_CALLBACK": None
+    "USER_TEST_CALLBACK": None,
+    "USER_IS_SUPERUSER": True,
+    "USER_IS_STAFF": False,
+    "ENABLE_INDEX": False,
+    "MAX_RESULTS": 50
 }
 
 
