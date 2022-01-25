@@ -6,7 +6,7 @@ from django.conf import settings
 
 
 __all__ = [
-    "get_caches", "CacheManager",
+    "get_caches", "has_redis_cache", "CacheManager",
 ]
 
 
@@ -39,13 +39,20 @@ class CacheManager(object):
     def delete_many(self, keys):
         self.cache.delete_many(keys)
         
-    def search(self, query):
-        results = []
+    def search(self, query, max_results=None):
+        if not max_results:
+            max_results = settings.DRAGON_MAX_RESULTS
 
         for term in query:
             if self.is_redis:
-                results += self.cache.keys(f"*{term}*") or []
-            else:
-                results += [term] if self.cache.get(term) is not None else []
+                results = []
 
-        return results
+                for key in self.cache.iter_keys(f"*{term}*"):
+                    if len(results) == max_results:
+                        break
+
+                    results.append(key)
+
+                return results
+            else:
+                return [term] if self.cache.get(term) is not None else []
