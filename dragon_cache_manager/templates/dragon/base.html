@@ -2,7 +2,7 @@
 
 {% block content %}
   <div id="content-main">
-    <a href="{% url 'dragon_search' %}">Cache Search</a>{% if has_redis_cache %} | <a href="{% url 'dragon_redis_index' %}">Redis Key Index</a>{% endif %}
+    <a href="{% url 'dragon_search' %}">Cache Search</a>{% if has_redis_cache and show_redis_index %} | <a href="{% url 'dragon_redis_index' %}">Redis Key Index</a>{% endif %}
     {% block dragon_content %}{% endblock %}
   </div>
 {% endblock %}

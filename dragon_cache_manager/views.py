@@ -46,6 +46,7 @@ class DragonResultsAdminView(DragonViewMixin, TemplateView):
 
         ctx['keys'] = self.keys
         ctx['cache'] = self.cache.display
+        ctx['max_results'] = settings.DRAGON_MAX_RESULTS
 
         return ctx
     
