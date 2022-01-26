@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "A cache manager for Django admin"
 authors = ["Logan Bibby <lbibby@thesummitgrp.com>"]
 packages = [
-    { include = "dragon" },
+    { include = "dragon_cache_manager" },
 ]
 
 [tool.poetry.dependencies]
