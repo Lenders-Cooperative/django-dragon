@@ -32,5 +32,6 @@ class DragonViewMixin(UserPassesTestMixin):
             ctx['page_title'] = self.page_title
 
         ctx['has_redis_cache'] = has_redis_cache()
+        ctx['show_redis_index'] = settings.DRAGON_ENABLE_INDEX
 
         return ctx
