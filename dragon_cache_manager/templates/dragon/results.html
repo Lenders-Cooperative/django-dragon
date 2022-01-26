@@ -1,6 +1,7 @@
 {% extends 'dragon/base.html' %}
 
 {% block dragon_content %}
+    <p>Showing {{ keys|length }} results with a maximum of {{ max_results }} results.</p>
     <form method="post">
         <table>
             {% for key in keys %}

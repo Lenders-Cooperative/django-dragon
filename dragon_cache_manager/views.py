@@ -71,6 +71,8 @@ class DragonRedisKeyIndexAdminView(DragonViewMixin, TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
 
+        ctx['max_results'] = settings.DRAGON_MAX_RESULTS
+
         ctx["redis_keys"] = {}
 
         for cache_name in settings.CACHES.keys():
