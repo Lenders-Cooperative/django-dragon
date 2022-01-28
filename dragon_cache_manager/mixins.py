@@ -26,7 +26,7 @@ class DragonViewMixin(UserPassesTestMixin):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
 
-        ctx['title'] = 'Dragon Cache Manager'
+        ctx['title'] = 'Cache Manager'
 
         if self.page_title:
             ctx['page_title'] = self.page_title
