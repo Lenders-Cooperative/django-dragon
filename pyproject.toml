@@ -1,14 +1,20 @@
 [tool.poetry]
 name = "django-dragon"
-version = "0.1.2"
+version = "0.1.5"
 description = "A cache manager for Django admin"
+homepage = "https://github.com/Lenders-Cooperative/django-dragon"
+readme = "README.md"
+license = "BSD3"
 authors = ["Logan Bibby <lbibby@thesummitgrp.com>"]
 packages = [
     { include = "dragon_cache_manager" },
 ]
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 Django = "^3.1.13"
 
 [tool.poetry.dev-dependencies]
