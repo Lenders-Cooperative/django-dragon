@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dragon"
-version = "0.1.1"
+version = "0.1.2"
 description = "A cache manager for Django admin"
 authors = ["Logan Bibby <lbibby@thesummitgrp.com>"]
 packages = [
