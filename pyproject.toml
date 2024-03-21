@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-dragon"
-version = "0.1.6"
+version = "1.0.0"
 description = "A cache manager for Django admin"
 homepage = "https://github.com/Lenders-Cooperative/django-dragon"
 readme = "README.md"
@@ -14,8 +14,8 @@ include = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.6,<4.0"
-Django = ">=3.2.15"
+python = ">=3.10.10,<4.0"
+Django = ">=3.2.15,<5.0"
 
 [tool.poetry.dev-dependencies]
 
